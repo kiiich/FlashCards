@@ -11,6 +11,7 @@ class FlashcardsViewController: UIViewController {
 
     @IBOutlet weak var showAnswerButton: UIButton!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var imageFlashcardView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
