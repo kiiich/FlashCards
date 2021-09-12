@@ -49,16 +49,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r5R-cQ-N0G">
-                                <rect key="frame" x="82.5" y="136" width="210" height="210"/>
+                                <rect key="frame" x="82.5" y="146" width="210" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="vic-6U-0L6"/>
                                     <constraint firstAttribute="height" constant="210" id="vrf-kh-bQN"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uba-9T-tfU">
-                                <rect key="frame" x="118" y="459.5" width="139" height="41"/>
+                                <rect key="frame" x="118" y="469.5" width="139" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show answer"/>
+                                <connections>
+                                    <action selector="showAnswerPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="iAP-UM-CLI"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="kHe-7P-yvM">
                                 <rect key="frame" x="16" y="560" width="343" height="38"/>
@@ -66,25 +69,35 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOH-QI-8wh">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="Know it"/>
+                                        <state key="normal" title="Know it">
+                                            <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="pressButton:" destination="5C0-nE-owo" eventType="touchUpInside" id="FVT-aC-TfV"/>
+                                            <action selector="nextButtonPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="TA3-Gh-tCx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3L-7P-Wfz">
                                         <rect key="frame" x="193" y="0.0" width="150" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="Dont't know"/>
+                                        <state key="normal" title="Dont't know">
+                                            <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="pressButton:" destination="5C0-nE-owo" eventType="touchUpInside" id="cQ0-bu-sav"/>
+                                            <action selector="backButtonPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="sTo-or-2YN"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDJ-bP-HBS">
-                                <rect key="frame" x="166" y="386" width="43" height="33.5"/>
+                                <rect key="frame" x="166" y="396" width="43" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnj-vP-3oa">
+                                <rect key="frame" x="168" y="106" width="39" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -92,8 +105,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8jA-uZ-OLd" firstAttribute="bottom" secondItem="kHe-7P-yvM" secondAttribute="bottom" constant="20" id="6It-oM-6Ro"/>
-                            <constraint firstItem="r5R-cQ-N0G" firstAttribute="top" secondItem="8jA-uZ-OLd" secondAttribute="top" constant="40" id="Bfd-rF-pol"/>
+                            <constraint firstItem="r5R-cQ-N0G" firstAttribute="top" secondItem="8jA-uZ-OLd" secondAttribute="top" constant="50" id="Bfd-rF-pol"/>
+                            <constraint firstItem="Bnj-vP-3oa" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="NDJ-sB-Ezl"/>
                             <constraint firstItem="bDJ-bP-HBS" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="Yzl-Eb-Jce"/>
+                            <constraint firstItem="Bnj-vP-3oa" firstAttribute="top" secondItem="8jA-uZ-OLd" secondAttribute="top" constant="10" id="exP-hO-fj6"/>
                             <constraint firstItem="uba-9T-tfU" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="eyI-o4-Ouc"/>
                             <constraint firstItem="uba-9T-tfU" firstAttribute="top" secondItem="bDJ-bP-HBS" secondAttribute="bottom" constant="40" id="fFJ-cC-8Pn"/>
                             <constraint firstItem="r5R-cQ-N0G" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="fPw-Vw-yY5"/>
@@ -110,6 +125,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countLabel" destination="Bnj-vP-3oa" id="zVb-lv-rmQ"/>
                         <outlet property="imageFlashcardView" destination="r5R-cQ-N0G" id="rWt-Xe-zTE"/>
                         <outlet property="showAnswerButton" destination="uba-9T-tfU" id="0xr-sh-c48"/>
                         <outlet property="wordLabel" destination="bDJ-bP-HBS" id="oyi-vP-RBa"/>
@@ -117,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya7-gn-y3i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628.98550724637687" y="677.67857142857144"/>
+            <point key="canvasLocation" x="628" y="676.91154422788611"/>
         </scene>
         <!--Editing Flashcard View Controller-->
         <scene sceneID="dMX-ia-DdI">
@@ -198,6 +214,9 @@
         <image name="graduationcap" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
