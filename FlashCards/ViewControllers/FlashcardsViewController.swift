@@ -13,6 +13,8 @@ class FlashcardsViewController: UIViewController {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var imageFlashcardView: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var knowButton: UIButton!
+    @IBOutlet weak var dontKnowButton: UIButton!
     
     // TODO - mok
     
@@ -25,6 +27,8 @@ class FlashcardsViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        
+        setupUI()
         
         updateUIElements(currentFlashcard())
         
@@ -66,6 +70,14 @@ class FlashcardsViewController: UIViewController {
         imageFlashcardView.image = UIImage(named: currentFlashcard.imageName)
         countLabel.text = "\(currentIndex + 1) / \(flashcards.count)"
         showAnswerButton.setTitle("Show answer", for: .normal)
+        
+    }
+    
+    private func setupUI() {
+        
+        imageFlashcardView.layer.cornerRadius = 30
+        knowButton.layer.cornerRadius = 10
+        dontKnowButton.layer.cornerRadius = 10
         
     }
     

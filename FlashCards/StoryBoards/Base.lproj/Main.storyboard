@@ -64,10 +64,14 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="kHe-7P-yvM">
-                                <rect key="frame" x="16" y="560" width="343" height="38"/>
+                                <rect key="frame" x="16" y="553" width="343" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOH-QI-8wh">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="45"/>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="JKw-6T-Ukr"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Know it">
                                             <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,7 +81,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3L-7P-Wfz">
-                                        <rect key="frame" x="193" y="0.0" width="150" height="38"/>
+                                        <rect key="frame" x="193" y="0.0" width="150" height="45"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="sSQ-L0-KM0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Dont't know">
                                             <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,7 +134,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countLabel" destination="Bnj-vP-3oa" id="zVb-lv-rmQ"/>
+                        <outlet property="dontKnowButton" destination="J3L-7P-Wfz" id="XYX-kn-jHX"/>
                         <outlet property="imageFlashcardView" destination="r5R-cQ-N0G" id="rWt-Xe-zTE"/>
+                        <outlet property="knowButton" destination="rOH-QI-8wh" id="eOb-ZU-zO9"/>
                         <outlet property="showAnswerButton" destination="uba-9T-tfU" id="0xr-sh-c48"/>
                         <outlet property="wordLabel" destination="bDJ-bP-HBS" id="oyi-vP-RBa"/>
                     </connections>
