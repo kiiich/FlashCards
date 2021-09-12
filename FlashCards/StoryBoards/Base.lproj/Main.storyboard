@@ -102,6 +102,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All words is studied" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ2-zY-oD4">
+                                <rect key="frame" x="71.5" y="317" width="232" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" systemColor="systemGray3Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnj-vP-3oa">
                                 <rect key="frame" x="168" y="106" width="39" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -114,8 +120,10 @@
                         <constraints>
                             <constraint firstItem="8jA-uZ-OLd" firstAttribute="bottom" secondItem="kHe-7P-yvM" secondAttribute="bottom" constant="20" id="6It-oM-6Ro"/>
                             <constraint firstItem="r5R-cQ-N0G" firstAttribute="top" secondItem="8jA-uZ-OLd" secondAttribute="top" constant="50" id="Bfd-rF-pol"/>
+                            <constraint firstItem="yQ2-zY-oD4" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="CD4-b1-Uhz"/>
                             <constraint firstItem="Bnj-vP-3oa" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="NDJ-sB-Ezl"/>
                             <constraint firstItem="bDJ-bP-HBS" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="Yzl-Eb-Jce"/>
+                            <constraint firstItem="yQ2-zY-oD4" firstAttribute="centerY" secondItem="umo-ic-Vks" secondAttribute="centerY" id="aid-HG-Rxt"/>
                             <constraint firstItem="Bnj-vP-3oa" firstAttribute="top" secondItem="8jA-uZ-OLd" secondAttribute="top" constant="10" id="exP-hO-fj6"/>
                             <constraint firstItem="uba-9T-tfU" firstAttribute="centerX" secondItem="umo-ic-Vks" secondAttribute="centerX" id="eyI-o4-Ouc"/>
                             <constraint firstItem="uba-9T-tfU" firstAttribute="top" secondItem="bDJ-bP-HBS" secondAttribute="bottom" constant="40" id="fFJ-cC-8Pn"/>
@@ -133,6 +141,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="allStudiedLabel" destination="yQ2-zY-oD4" id="ULy-ag-NbH"/>
+                        <outlet property="buttonsStack" destination="kHe-7P-yvM" id="rcR-mu-ONE"/>
                         <outlet property="countLabel" destination="Bnj-vP-3oa" id="zVb-lv-rmQ"/>
                         <outlet property="dontKnowButton" destination="J3L-7P-Wfz" id="XYX-kn-jHX"/>
                         <outlet property="imageFlashcardView" destination="r5R-cQ-N0G" id="rWt-Xe-zTE"/>
@@ -227,6 +237,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

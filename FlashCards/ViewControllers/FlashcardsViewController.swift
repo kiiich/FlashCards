@@ -15,6 +15,8 @@ class FlashcardsViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var knowButton: UIButton!
     @IBOutlet weak var dontKnowButton: UIButton!
+    @IBOutlet weak var buttonsStack: UIStackView!
+    @IBOutlet weak var allStudiedLabel: UILabel!
     
     // TODO - mok
     
@@ -34,8 +36,19 @@ class FlashcardsViewController: UIViewController {
         
     }
     
+
     @IBAction func nextButtonPressed(_ sender: UIButton) {
     
+        if flashcards.count == 1 {
+            allStudiedLabel.isHidden = false
+            imageFlashcardView.isHidden = true
+            wordLabel.isHidden = true
+            countLabel.isHidden = true
+            showAnswerButton.isHidden = true
+            buttonsStack.isHidden = true
+            return
+        }
+        
         if currentIndex == flashcards.count - 1 {
             currentIndex = 0
         }
