@@ -16,7 +16,7 @@ class FlashcardsViewController: UIViewController {
     
     // TODO - mok
     
-    var flashcards = Word.getDictionary()
+    var flashcards = Flashcard.getDictionary()
         .filter { !$0.isLearned }
         .shuffled()
     
@@ -26,28 +26,51 @@ class FlashcardsViewController: UIViewController {
        
         super.viewDidLoad()
         
-        updateUIElements(flashcards[currentIndex])
+        updateUIElements(currentFlashcard())
         
     }
     
-    @IBAction func pressButton(_ sender: UIButton) {
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
     
+        if currentIndex == flashcards.count - 1 {
+            currentIndex = 0
+        }
+        
+        flashcards[currentIndex].isLearned = true
+        
+        flashcards.remove(at: currentIndex)
+        
+        updateUIElements(currentFlashcard())
+        
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        
         if currentIndex == flashcards.count - 1 {
             currentIndex = 0
         } else {
             currentIndex += 1
         }
     
-        updateUIElements(flashcards[currentIndex])
-        
+        updateUIElements(currentFlashcard())
+
     }
     
-    private func updateUIElements(_ currentFlashcard: Word) {
+    @IBAction func showAnswerPressed(_ sender: UIButton) {
+        showAnswerButton.setTitle(currentFlashcard().ruTranslation, for: .normal)
+    }
+    
+    private func updateUIElements(_ currentFlashcard: Flashcard) {
         
         wordLabel.text = currentFlashcard.enWord
         imageFlashcardView.image = UIImage(imageLiteralResourceName: currentFlashcard.imageName)
         countLabel.text = "\(currentIndex + 1) / \(flashcards.count)"
+        showAnswerButton.setTitle("Show answer", for: .normal)
         
+    }
+    
+    private func currentFlashcard() -> Flashcard {
+        flashcards[currentIndex]
     }
     
 }

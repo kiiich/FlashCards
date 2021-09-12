@@ -59,6 +59,9 @@
                                 <rect key="frame" x="118" y="469.5" width="139" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show answer"/>
+                                <connections>
+                                    <action selector="showAnswerPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="iAP-UM-CLI"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="kHe-7P-yvM">
                                 <rect key="frame" x="16" y="560" width="343" height="38"/>
@@ -70,7 +73,7 @@
                                             <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressButton:" destination="5C0-nE-owo" eventType="touchUpInside" id="FVT-aC-TfV"/>
+                                            <action selector="nextButtonPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="TA3-Gh-tCx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3L-7P-Wfz">
@@ -80,7 +83,7 @@
                                             <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressButton:" destination="5C0-nE-owo" eventType="touchUpInside" id="cQ0-bu-sav"/>
+                                            <action selector="backButtonPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="sTo-or-2YN"/>
                                         </connections>
                                     </button>
                                 </subviews>
