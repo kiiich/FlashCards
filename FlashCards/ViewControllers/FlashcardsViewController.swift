@@ -63,7 +63,7 @@ class FlashcardsViewController: UIViewController {
     private func updateUIElements(_ currentFlashcard: Flashcard) {
         
         wordLabel.text = currentFlashcard.enWord
-        imageFlashcardView.image = UIImage(imageLiteralResourceName: currentFlashcard.imageName)
+        imageFlashcardView.image = UIImage(named: currentFlashcard.imageName)
         countLabel.text = "\(currentIndex + 1) / \(flashcards.count)"
         showAnswerButton.setTitle("Show answer", for: .normal)
         
