@@ -28,7 +28,6 @@ class DataManager {
         ("number", "число", false),
         ("ratio", "соотношение", false),
         ("slightly", "слегка", false),
-        ("perhaps", "возможно", false),
         ("later", "позже", false),
         ("never", "никогда", false)
     ]

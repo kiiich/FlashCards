@@ -10,7 +10,7 @@ import Foundation
 struct Word {
     let enWord: String
     var ruTranslation: String
-    var learnStatus: Bool
+    var isLearned: Bool
     
     var enRuTranslation: String {
         "\(enWord) - \(ruTranslation)"
@@ -23,7 +23,7 @@ extension Word {
         var wordsList: [Word] = []
         
         for rawWord in DataManager.shared.words {
-            let wordData = Word(enWord: rawWord.0, ruTranslation: rawWord.1, learnStatus: rawWord.2)
+            let wordData = Word(enWord: rawWord.0, ruTranslation: rawWord.1, isLearned: rawWord.2)
             wordsList.append(wordData)
         }
         
