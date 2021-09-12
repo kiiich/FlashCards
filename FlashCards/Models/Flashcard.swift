@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Word {
+struct Flashcard {
     var enWord: String
     var ruTranslation: String
     var isLearned: Bool
@@ -19,12 +19,12 @@ struct Word {
     
 }
 
-extension Word {
-    static func getDictionary() -> [Word] {
-        var wordsList: [Word] = []
+extension Flashcard {
+    static func getDictionary() -> [Flashcard] {
+        var wordsList: [Flashcard] = []
         
         for rawWord in DataManager.shared.words {
-            let wordData = Word(
+            let wordData = Flashcard(
                 enWord: rawWord.0,
                 ruTranslation: rawWord.1,
                 isLearned: rawWord.2,
@@ -37,8 +37,8 @@ extension Word {
     }
 }
 
-extension Word: Comparable {
-    static func < (lhs: Word, rhs: Word) -> Bool {
+extension Flashcard: Comparable {
+    static func < (lhs: Flashcard, rhs: Flashcard) -> Bool {
         lhs.enWord < rhs.enWord
     }
 }
