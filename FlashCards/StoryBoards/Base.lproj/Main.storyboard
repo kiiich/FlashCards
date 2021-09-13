@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="-260" y="-14"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="Y8K-Kk-qMZ">
             <objects>
-                <tabBarController id="iFR-XX-B3m" sceneMemberID="viewController">
+                <tabBarController id="iFR-XX-B3m" customClass="TabBarViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qwb-H9-oc8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -9,7 +9,7 @@ import UIKit
 
 class FlashcardsListViewController: UITableViewController {
     
-    var flashcardsData: [Flashcard]!
+    var flashcards: [Flashcard]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

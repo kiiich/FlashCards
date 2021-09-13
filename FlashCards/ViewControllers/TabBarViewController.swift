@@ -15,18 +15,17 @@ class TabBarViewController: UITabBarController {
     }
 
     private func passData() {
-        let flashcardsData = Flashcard.getDictionary()
+        let flashcards = Flashcard.getDictionary()
         
         guard let viewControllers = viewControllers else { return }
 
         viewControllers.forEach {
-            guard let navigationVC = $0 as? UINavigationController else {
-                return
-            }
+            guard let navigationVC = $0 as? UINavigationController else { return }
+            
             if let cardsListVC = navigationVC.topViewController as? FlashcardsListViewController {
-                cardsListVC.flashcardsData = flashcardsData
+                cardsListVC.flashcards = flashcards
             } else if let showcardsVC = navigationVC.topViewController as? FlashcardsViewController {
-                showcardsVC.flashcardsData = flashcardsData
+                showcardsVC.flashcards = flashcards.shuffled().filter{ !$0.isLearned }
             }
         }
 
