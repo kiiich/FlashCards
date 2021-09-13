@@ -31,21 +31,15 @@ class FlashcardsViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
         updateUIElements(currentFlashcard())
         
     }
-    
 
-    @IBAction func nextButtonPressed(_ sender: UIButton) {
+    @IBAction func knowButtonPressed() {
     
         if flashcards.count == 1 {
+            hideNavigationElements()
             allStudiedLabel.isHidden = false
-            imageFlashcardView.isHidden = true
-            wordLabel.isHidden = true
-            countLabel.isHidden = true
-            showAnswerButton.isHidden = true
-            buttonsStack.isHidden = true
             return
         }
         
@@ -61,7 +55,7 @@ class FlashcardsViewController: UIViewController {
         
     }
     
-    @IBAction func backButtonPressed(_ sender: UIButton) {
+    @IBAction func dontKnowButtonPressed() {
         
         if currentIndex == flashcards.count - 1 {
             currentIndex = 0
@@ -96,6 +90,16 @@ class FlashcardsViewController: UIViewController {
     
     private func currentFlashcard() -> Flashcard {
         flashcards[currentIndex]
+    }
+    
+    private func hideNavigationElements() {
+        
+        imageFlashcardView.isHidden = true
+        wordLabel.isHidden = true
+        countLabel.isHidden = true
+        showAnswerButton.isHidden = true
+        buttonsStack.isHidden = true
+        
     }
     
 }

@@ -77,7 +77,7 @@
                                             <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextButtonPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="TA3-Gh-tCx"/>
+                                            <action selector="knowButtonPressed" destination="5C0-nE-owo" eventType="touchUpInside" id="Qlg-ee-duK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3L-7P-Wfz">
@@ -91,7 +91,7 @@
                                             <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="backButtonPressed:" destination="5C0-nE-owo" eventType="touchUpInside" id="sTo-or-2YN"/>
+                                            <action selector="dontKnowButtonPressed" destination="5C0-nE-owo" eventType="touchUpInside" id="dwL-A2-Og0"/>
                                         </connections>
                                     </button>
                                 </subviews>
