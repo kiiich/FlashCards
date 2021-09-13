@@ -20,9 +20,11 @@ class FlashcardsViewController: UIViewController {
     
     // TODO - mok
     
-    var flashcards = Flashcard.getDictionary()
-        .filter { !$0.isLearned }
-        .shuffled()
+//    var flashcards = Flashcard.getDictionary()
+//        .filter { !$0.isLearned }
+//        .shuffled()
+    var flashcards: [Flashcard]!
+    
     
     private var currentIndex = 0
     
