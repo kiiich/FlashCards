@@ -167,6 +167,9 @@
                                 <rect key="frame" x="164" y="314" width="47" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed" destination="52q-0k-CFC" eventType="touchUpInside" id="WCj-6b-SHf"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="DJw-jg-47s">
                                 <rect key="frame" x="16" y="80" width="343" height="121"/>
@@ -214,6 +217,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KVM-mP-YbR">
                                                 <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="studiedSwitcher" destination="52q-0k-CFC" eventType="valueChanged" id="iBc-QR-0Ah"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -231,6 +237,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PWC-Zp-a8u"/>
+                    <connections>
+                        <outlet property="englishWordTF" destination="mjJ-jw-Rnr" id="4S8-tC-pHa"/>
+                        <outlet property="russianWordTF" destination="K6o-Wc-LIr" id="g3U-Gi-91h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0o-AW-fsc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
