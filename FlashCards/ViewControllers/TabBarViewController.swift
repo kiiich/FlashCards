@@ -24,9 +24,9 @@ class TabBarViewController: UITabBarController {
                 return
             }
             if let cardsListVC = navigationVC.topViewController as? FlashcardsListViewController {
-                cardsListVC.flashcards = flashcardsData
+                cardsListVC.flashcardsData = flashcardsData
             } else if let showcardsVC = navigationVC.topViewController as? FlashcardsViewController {
-                showcardsVC.flashcards = flashcardsData
+                showcardsVC.flashcardsData = flashcardsData
             }
         }
 
