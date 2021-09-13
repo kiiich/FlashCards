@@ -162,8 +162,73 @@
                     <view key="view" contentMode="scaleToFill" id="JQS-8A-npm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-jK-YIG">
+                                <rect key="frame" x="164" y="314" width="47" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="DJw-jg-47s">
+                                <rect key="frame" x="16" y="80" width="343" height="121"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="rrN-bj-96j">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English word:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sU1-Hi-kOa">
+                                                <rect key="frame" x="0.0" y="0.0" width="102" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjJ-jw-Rnr">
+                                                <rect key="frame" x="177" y="0.0" width="166" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-D9-WvW">
+                                        <rect key="frame" x="0.0" y="45" width="343" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Russian word:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYB-bX-h6Q">
+                                                <rect key="frame" x="0.0" y="0.0" width="106" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6o-Wc-LIr">
+                                                <rect key="frame" x="177" y="0.0" width="166" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="101" translatesAutoresizingMaskIntoConstraints="NO" id="XSw-lw-35J">
+                                        <rect key="frame" x="0.0" y="90" width="343" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studied" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOd-eq-7JO">
+                                                <rect key="frame" x="0.0" y="0.0" width="193" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KVM-mP-YbR">
+                                                <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bg7-5m-bzh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DJw-jg-47s" firstAttribute="top" secondItem="bg7-5m-bzh" secondAttribute="top" constant="80" id="6S0-2p-ij1"/>
+                            <constraint firstItem="bg7-5m-bzh" firstAttribute="trailing" secondItem="DJw-jg-47s" secondAttribute="trailing" constant="16" id="Jo5-Lt-H7c"/>
+                            <constraint firstItem="DJw-jg-47s" firstAttribute="leading" secondItem="bg7-5m-bzh" secondAttribute="leading" constant="16" id="XJF-QI-vRA"/>
+                            <constraint firstItem="MqM-jK-YIG" firstAttribute="centerX" secondItem="JQS-8A-npm" secondAttribute="centerX" id="YBL-a0-3T5"/>
+                            <constraint firstItem="MqM-jK-YIG" firstAttribute="centerY" secondItem="JQS-8A-npm" secondAttribute="centerY" id="vT0-y9-E8f"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PWC-Zp-a8u"/>
                 </viewController>
@@ -227,7 +292,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bTD-ja-9CG"/>
+        <segue reference="UeT-rQ-fi6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.richtext" catalog="system" width="115" height="128"/>
