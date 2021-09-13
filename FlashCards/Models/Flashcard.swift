@@ -16,7 +16,14 @@ struct Flashcard {
     var enRuTranslation: String {
         "\(enWord) - \(ruTranslation)"
     }
-    
+}
+
+extension Flashcard {
+    mutating func editCardData(enWord: String, ruTranslation: String, isLearned: Bool) {
+        self.enWord = enWord
+        self.ruTranslation = ruTranslation
+        self.isLearned = isLearned
+    }
 }
 
 extension Flashcard {
