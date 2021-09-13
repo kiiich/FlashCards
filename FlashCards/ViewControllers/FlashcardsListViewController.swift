@@ -9,11 +9,10 @@ import UIKit
 
 class FlashcardsListViewController: UITableViewController {
     
-    var flashcards = Flashcard.getDictionary()
-
+    var flashcardsData: [Flashcard]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        passData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,7 +25,7 @@ class FlashcardsListViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        0
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +59,7 @@ class FlashcardsListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -89,23 +88,4 @@ class FlashcardsListViewController: UITableViewController {
     }
     */
 
-}
-
-
-extension FlashcardsListViewController {
-    
-    private func passData() {
-        guard let tabBarController = self.tabBarController else { return }
-        guard let viewControllers = tabBarController.viewControllers else { return }
-        
-        viewControllers.forEach {
-            guard let navigationVC = $0 as? UINavigationController else {
-                return
-            }
-            if let showcardsVC = navigationVC.topViewController as? FlashcardsViewController {
-                showcardsVC.flashcards = flashcards
-            }
-        }
-
-    }
 }

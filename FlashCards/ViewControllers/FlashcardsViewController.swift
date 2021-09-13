@@ -19,12 +19,11 @@ class FlashcardsViewController: UIViewController {
     @IBOutlet weak var allStudiedLabel: UILabel!
     
     // TODO - mok
+    var flashcardsData: [Flashcard]!
     
-//    var flashcards = Flashcard.getDictionary()
-//        .filter { !$0.isLearned }
-//        .shuffled()
-    var flashcards: [Flashcard]!
-    
+    var flashcards = Flashcard.getDictionary()
+        .filter { !$0.isLearned }
+        .shuffled()
     
     private var currentIndex = 0
     
