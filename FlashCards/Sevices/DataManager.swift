@@ -26,9 +26,9 @@ class DataManager {
         ("danger", "опасность", false, "danger.jpg"),
         ("number", "число", false, "number.jpg"),
         ("ratio", "соотношение", false, "ratio.jpg"),
-        ("together", "слегка", false, "together.jpg"),
+        ("together", "вместе", false, "together.jpg"),
         ("later", "позже", false, "later.jpg"),
-        ("flamingo", "никогда", false, "flamingo.jpg")
+        ("flamingo", "фламинго", false, "flamingo.jpg")
     ]
     
     private init() {}
