@@ -18,15 +18,16 @@ class FlashcardsViewController: UIViewController {
     @IBOutlet weak var buttonsStack: UIStackView!
     @IBOutlet weak var allStudiedLabel: UILabel!
     
-    // TODO - mok    
     var flashcards: [Flashcard]!
-
-    
     private var currentIndex = 0
     
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        
+        flashcards = flashcards
+            .filter{ !$0.isLearned }
+            .shuffled()
         
         setupUI()
         updateUIElements(currentFlashcard())
