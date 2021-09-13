@@ -18,9 +18,7 @@ class FlashcardsViewController: UIViewController {
     @IBOutlet weak var buttonsStack: UIStackView!
     @IBOutlet weak var allStudiedLabel: UILabel!
     
-    // TODO - mok
-    var flashcardsData: [Flashcard]!
-    
+    // TODO - mok    
     var flashcards = Flashcard.getDictionary()
         .filter { !$0.isLearned }
         .shuffled()
