@@ -122,14 +122,8 @@ class FlashcardsViewController: UIViewController {
 
 extension FlashcardsViewController: FlashcardsUpdateDelegate {
     
-    func updateFlashcards(with flashcard: Flashcard?) {
+    func updateFlashcards() {
        
-        guard let flashcardData = flashcard else { return }
-        
-        flashcards[currentIndex].enWord = flashcardData.enWord
-        flashcards[currentIndex].ruTranslation = flashcardData.ruTranslation
-        flashcards[currentIndex].isLearned = flashcardData.isLearned
-        
     }
     
 }
