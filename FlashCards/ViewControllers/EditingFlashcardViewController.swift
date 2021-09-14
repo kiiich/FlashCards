@@ -12,6 +12,9 @@ class EditingFlashcardViewController: UIViewController {
     @IBOutlet var englishWordTF: UITextField!
     @IBOutlet var russianWordTF: UITextField!
     
+    var delegate: FlashcardsUpdateDelegate!
+    var flashCard: Flashcard!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
