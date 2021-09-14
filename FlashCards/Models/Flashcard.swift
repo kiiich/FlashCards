@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Flashcard {
+class Flashcard {
     var enWord: String
     var ruTranslation: String
     var isLearned: Bool
@@ -16,10 +16,17 @@ struct Flashcard {
     var enRuTranslation: String {
         "\(enWord) - \(ruTranslation)"
     }
+    
+    init(enWord: String, ruTranslation: String, isLearned: Bool, imageName: String) {
+        self.enWord = enWord
+        self.ruTranslation = ruTranslation
+        self.isLearned = isLearned
+        self.imageName = imageName
+    }
 }
 
 extension Flashcard {
-    mutating func updateWith(editedFlashcard:  Flashcard) {
+    func updateWith(editedFlashcard:  Flashcard) {
         self.enWord = editedFlashcard.enWord
         self.ruTranslation = editedFlashcard.ruTranslation
         self.isLearned = editedFlashcard.isLearned
@@ -45,6 +52,10 @@ extension Flashcard {
 }
 
 extension Flashcard: Comparable {
+    static func == (lhs: Flashcard, rhs: Flashcard) -> Bool {
+        lhs.enWord == rhs.enWord
+    }
+    
     static func < (lhs: Flashcard, rhs: Flashcard) -> Bool {
         lhs.enWord < rhs.enWord
     }
