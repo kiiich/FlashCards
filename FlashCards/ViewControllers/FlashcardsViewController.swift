@@ -111,9 +111,9 @@ class FlashcardsViewController: UIViewController {
             return
         }
         
-        for const in view.constraints {
-            if (const.identifier ?? "") == "showAnswerUp" {
-                const.constant = 15
+        for constraint in view.constraints {
+            if (constraint.identifier ?? "") == "showAnswerUp" {
+                constraint.constant = 15
                 return
             }
         }
@@ -122,14 +122,8 @@ class FlashcardsViewController: UIViewController {
 
 extension FlashcardsViewController: FlashcardsUpdateDelegate {
     
-    func updateFlashcards(with flashcard: Flashcard?) {
+    func updateFlashcards() {
        
-        guard let flashcardData = flashcard else { return }
-        
-        flashcards[currentIndex].enWord = flashcardData.enWord
-        flashcards[currentIndex].ruTranslation = flashcardData.ruTranslation
-        flashcards[currentIndex].isLearned = flashcardData.isLearned
-        
     }
     
 }

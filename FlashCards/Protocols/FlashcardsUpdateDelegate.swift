@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FlashcardsUpdateDelegate {
-    func updateFlashcards(with flashcard: Flashcard?)
+    func updateFlashcards()
 }
