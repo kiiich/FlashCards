@@ -69,7 +69,7 @@ class FlashcardsViewController: UIViewController {
     @IBAction func showAnswerPressed(_ sender: UIButton) {
         showAnswerButton.setTitle(currentFlashcard().ruTranslation, for: .normal)
     }
-    
+        
     private func updateUIElements(_ currentFlashcard: Flashcard) {
         
         wordLabel.text = currentFlashcard.enWord
@@ -98,6 +98,20 @@ class FlashcardsViewController: UIViewController {
         countLabel.isHidden = true
         showAnswerButton.isHidden = true
         buttonsStack.isHidden = true
+        
+    }
+    
+}
+
+extension FlashcardsViewController: FlashcardsUpdateDelegate {
+    
+    func updateFlashcards(with flashcard: Flashcard?) {
+       
+        guard let flashcardData = flashcard else { return }
+        
+        flashcards[currentIndex].enWord = flashcardData.enWord
+        flashcards[currentIndex].ruTranslation = flashcardData.ruTranslation
+        flashcards[currentIndex].isLearned = flashcardData.isLearned
         
     }
     
