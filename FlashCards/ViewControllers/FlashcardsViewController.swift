@@ -31,6 +31,7 @@ class FlashcardsViewController: UIViewController {
         
         setupButtonsStyle()
         updateUIElements(currentFlashcard())
+        adaptUIForPhoneModels()
         
     }
     
@@ -104,6 +105,19 @@ class FlashcardsViewController: UIViewController {
         
     }
     
+    private func adaptUIForPhoneModels() {
+        
+        if UIDevice().name != "iPhone SE (1st generation)" {
+            return
+        }
+        
+        for const in view.constraints {
+            if (const.identifier ?? "") == "showAnswerUp" {
+                const.constant = 15
+                return
+            }
+        }
+    }
 }
 
 extension FlashcardsViewController: FlashcardsUpdateDelegate {
