@@ -29,9 +29,13 @@ class FlashcardsViewController: UIViewController {
             .filter{ !$0.isLearned }
             .shuffled()
         
-        setupUI()
+        setupButtonsStyle()
         updateUIElements(currentFlashcard())
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+        imageFlashcardView.layer.cornerRadius = (imageFlashcardView.frame.height / 10) * 1.5
     }
 
     @IBAction func knowButtonPressed() {
@@ -79,9 +83,8 @@ class FlashcardsViewController: UIViewController {
         
     }
     
-    private func setupUI() {
+    private func setupButtonsStyle() {
         
-        imageFlashcardView.layer.cornerRadius = 30
         knowButton.layer.cornerRadius = 10
         dontKnowButton.layer.cornerRadius = 10
         
