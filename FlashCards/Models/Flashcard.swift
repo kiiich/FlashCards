@@ -19,10 +19,10 @@ struct Flashcard {
 }
 
 extension Flashcard {
-    mutating func editCardData(enWord: String, ruTranslation: String, isLearned: Bool) {
-        self.enWord = enWord
-        self.ruTranslation = ruTranslation
-        self.isLearned = isLearned
+    mutating func updateWith(editedFlashcard:  Flashcard) {
+        self.enWord = editedFlashcard.enWord
+        self.ruTranslation = editedFlashcard.ruTranslation
+        self.isLearned = editedFlashcard.isLearned
     }
 }
 
