@@ -16,6 +16,10 @@ class FlashcardsListViewController: UITableViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateFlashcards()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         flashcards.count
     }
