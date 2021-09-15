@@ -33,6 +33,13 @@ class FlashcardsListViewController: UITableViewController {
         content.image = UIImage(named: card.imageName)
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
         
+        if card.isLearned {
+            content.imageProperties.tintColor = .orange
+            content.textProperties.color = .lightGray
+            content.text = (content.text ?? "") + " ✓"
+            content.secondaryTextProperties.color = .lightGray
+        }
+        
         cell.contentConfiguration = content
         
         return cell
