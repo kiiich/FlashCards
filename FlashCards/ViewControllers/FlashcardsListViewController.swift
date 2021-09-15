@@ -11,6 +11,11 @@ class FlashcardsListViewController: UITableViewController {
 
     var flashcards: [Flashcard]!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         flashcards.count
     }
@@ -25,6 +30,8 @@ class FlashcardsListViewController: UITableViewController {
         
         content.text = card.enWord
         content.secondaryText = card.ruTranslation
+        content.image = UIImage(named: card.imageName)
+        content.imageProperties.cornerRadius = tableView.rowHeight / 2
         
         cell.contentConfiguration = content
         
@@ -42,10 +49,21 @@ class FlashcardsListViewController: UITableViewController {
         
     }
     
+    private func setupUI() {
+        tableView.rowHeight = 70
+        setTitle()
+    }
+    
+    private func setTitle() {
+        let countLearned = flashcards.filter({ $0.isLearned }).count
+        title = "Studied: \(countLearned) of \(flashcards.count)"
+    }
+    
 }
 
 extension FlashcardsListViewController: FlashcardsUpdateDelegate {
     func updateFlashcards() {
         tableView.reloadData()
+        setTitle()
     }
 }
