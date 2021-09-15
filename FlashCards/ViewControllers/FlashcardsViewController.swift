@@ -46,6 +46,8 @@ class FlashcardsViewController: UIViewController {
         if flashcards.count == 1 {
             hideNavigationElements()
             allStudiedLabel.isHidden = false
+            flashcards[0].isLearned = true
+            flashcards.remove(at: 0)
             return
         }
         
