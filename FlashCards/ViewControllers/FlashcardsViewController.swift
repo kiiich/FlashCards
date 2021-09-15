@@ -74,6 +74,14 @@ class FlashcardsViewController: UIViewController {
     @IBAction func showAnswerPressed(_ sender: UIButton) {
         showAnswerButton.setTitle(currentFlashcard().ruTranslation, for: .normal)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let editFlashcardVC = segue.destination as? EditingFlashcardViewController else { return }
+        
+        editFlashcardVC.flashcard = currentFlashcard()
+        editFlashcardVC.delegate = self
+    }
         
     private func updateUIElements(_ currentFlashcard: Flashcard) {
         
@@ -123,7 +131,7 @@ class FlashcardsViewController: UIViewController {
 extension FlashcardsViewController: FlashcardsUpdateDelegate {
     
     func updateFlashcards() {
-       
+        updateUIElements(currentFlashcard())
     }
     
 }
