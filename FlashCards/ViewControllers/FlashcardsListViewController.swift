@@ -31,4 +31,21 @@ class FlashcardsListViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let editFlashcardVC = segue.destination as? EditingFlashcardViewController else { return }
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        editFlashcardVC.flashcard = flashcards[indexPath.row]
+        editFlashcardVC.delegate = self
+        
+    }
+    
+}
+
+extension FlashcardsListViewController: FlashcardsUpdateDelegate {
+    func updateFlashcards() {
+        tableView.reloadData()
+    }
 }
