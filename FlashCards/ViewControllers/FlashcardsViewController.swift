@@ -20,6 +20,7 @@ class FlashcardsViewController: UIViewController {
     
     var flashcards: [Flashcard]!
     private var currentIndex = 0
+    private var filteredFlashcards: [Flashcard] = []
     
     override func viewDidLoad() {
        
@@ -35,7 +36,7 @@ class FlashcardsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         prepareForFlashcards()
         
-        if flashcards.count == 0 {
+        if filteredFlashcards.count == 0 {
             hideNavigationElements()
             allStudiedLabel.isHidden = false
             return
@@ -50,21 +51,21 @@ class FlashcardsViewController: UIViewController {
 
     @IBAction func knowButtonPressed() {
     
-        if flashcards.count == 1 {
+        if filteredFlashcards.count == 1 {
             hideNavigationElements()
             allStudiedLabel.isHidden = false
-            flashcards[0].isLearned = true
-            flashcards.remove(at: 0)
+            filteredFlashcards[0].isLearned = true
+            filteredFlashcards.remove(at: 0)
             return
         }
         
-        if currentIndex == flashcards.count - 1 {
+        if currentIndex == filteredFlashcards.count - 1 {
             currentIndex = 0
         }
         
-        flashcards[currentIndex].isLearned = true
+        filteredFlashcards[currentIndex].isLearned = true
         
-        flashcards.remove(at: currentIndex)
+        filteredFlashcards.remove(at: currentIndex)
         
         updateUIElements(currentFlashcard())
         
@@ -72,7 +73,7 @@ class FlashcardsViewController: UIViewController {
     
     @IBAction func dontKnowButtonPressed() {
         
-        if currentIndex == flashcards.count - 1 {
+        if currentIndex == filteredFlashcards.count - 1 {
             currentIndex = 0
         } else {
             currentIndex += 1
@@ -98,7 +99,7 @@ class FlashcardsViewController: UIViewController {
         
         currentIndex = 0
         
-        flashcards = flashcards
+        filteredFlashcards = flashcards
             .filter{ !$0.isLearned }
             .shuffled()
         
@@ -108,7 +109,7 @@ class FlashcardsViewController: UIViewController {
         
         wordLabel.text = currentFlashcard.enWord
         imageFlashcardView.image = UIImage(named: currentFlashcard.imageName)
-        countLabel.text = "\(currentIndex + 1) / \(flashcards.count)"
+        countLabel.text = "\(currentIndex + 1) / \(filteredFlashcards.count)"
         showAnswerButton.setTitle("Show answer", for: .normal)
         
     }
@@ -121,7 +122,7 @@ class FlashcardsViewController: UIViewController {
     }
     
     private func currentFlashcard() -> Flashcard {
-        flashcards[currentIndex]
+        filteredFlashcards[currentIndex]
     }
     
     private func hideNavigationElements() {
