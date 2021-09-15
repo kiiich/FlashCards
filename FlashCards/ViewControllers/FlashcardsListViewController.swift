@@ -51,13 +51,14 @@ class FlashcardsListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let editFlashcardVC = segue.destination as? EditingFlashcardViewController else { return }
-        
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        
-        editFlashcardVC.flashcard = flashcards[indexPath.row]
-        editFlashcardVC.delegate = self
-        
+        if let navigationVC = segue.destination as? UINavigationController {
+            guard let editFlashcardVC = navigationVC.topViewController as? EditingFlashcardViewController else { return }
+            
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            editFlashcardVC.flashcard = flashcards[indexPath.row]
+            editFlashcardVC.delegate = self
+        }
     }
     
     private func setupUI() {

@@ -39,4 +39,10 @@ class EditingFlashcardViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func cancelButtonPressed() {
+        
+        dismiss(animated: true)
+        
+    }
+    
 }
