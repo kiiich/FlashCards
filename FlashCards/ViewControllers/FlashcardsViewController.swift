@@ -34,6 +34,13 @@ class FlashcardsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         prepareForFlashcards()
+        
+        if flashcards.count == 0 {
+            hideNavigationElements()
+            allStudiedLabel.isHidden = false
+            return
+        }
+        
         updateUIElements(currentFlashcard())
     }
     
