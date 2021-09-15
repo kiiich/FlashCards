@@ -194,7 +194,12 @@
                             <constraint firstItem="DJw-jg-47s" firstAttribute="leading" secondItem="bg7-5m-bzh" secondAttribute="leading" constant="16" id="XJF-QI-vRA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit flashcard" id="rLH-6z-CJo">
+                    <navigationItem key="navigationItem" title="Edit flashcard" leftItemsSupplementBackButton="YES" id="rLH-6z-CJo">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Cec-5q-8Rz">
+                            <connections>
+                                <action selector="cancelButtonPressed" destination="52q-0k-CFC" id="Ozd-ND-diW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="mnc-Ot-3Mj">
                             <connections>
                                 <action selector="saveButtonPressed" destination="52q-0k-CFC" id="fpj-Ca-0vc"/>
