@@ -88,11 +88,12 @@ class FlashcardsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let editFlashcardVC = segue.destination as? EditingFlashcardViewController else { return }
-        
-        editFlashcardVC.flashcard = currentFlashcard()
-        editFlashcardVC.delegate = self
+        if let navigationVC = segue.destination as? UINavigationController {
+            guard let editFlashcardVC = navigationVC.topViewController as? EditingFlashcardViewController else { return }
+            
+            editFlashcardVC.flashcard = currentFlashcard()
+            editFlashcardVC.delegate = self
+        }
     }
         
     private func prepareForFlashcards() {

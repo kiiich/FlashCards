@@ -25,7 +25,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="52q-0k-CFC" kind="presentation" id="UeT-rQ-fi6"/>
+                                    <segue destination="Pvv-EG-IQn" kind="presentation" id="UeT-rQ-fi6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -136,7 +136,7 @@
                     <navigationItem key="navigationItem" title="Flashcards show" id="SFy-UX-Srv">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="dNx-kg-eEV">
                             <connections>
-                                <segue destination="52q-0k-CFC" kind="presentation" id="bTD-ja-9CG"/>
+                                <segue destination="Pvv-EG-IQn" kind="presentation" id="bTD-ja-9CG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="628" y="676.91154422788611"/>
         </scene>
-        <!--Editing Flashcard View Controller-->
+        <!--Edit flashcard-->
         <scene sceneID="dMX-ia-DdI">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="52q-0k-CFC" customClass="EditingFlashcardViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
@@ -163,16 +163,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-jK-YIG">
-                                <rect key="frame" x="183.66666666666666" y="348.66666666666669" width="47" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButtonPressed" destination="52q-0k-CFC" eventType="touchUpInside" id="WCj-6b-SHf"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="DJw-jg-47s">
-                                <rect key="frame" x="16" y="80" width="382" height="121"/>
+                                <rect key="frame" x="16" y="116" width="382" height="121"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="English word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjJ-jw-Rnr">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
@@ -197,14 +189,18 @@
                         <viewLayoutGuide key="safeArea" id="bg7-5m-bzh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DJw-jg-47s" firstAttribute="top" secondItem="bg7-5m-bzh" secondAttribute="top" constant="80" id="6S0-2p-ij1"/>
+                            <constraint firstItem="DJw-jg-47s" firstAttribute="top" secondItem="bg7-5m-bzh" secondAttribute="top" constant="20" id="6S0-2p-ij1"/>
                             <constraint firstItem="bg7-5m-bzh" firstAttribute="trailing" secondItem="DJw-jg-47s" secondAttribute="trailing" constant="16" id="Jo5-Lt-H7c"/>
                             <constraint firstItem="DJw-jg-47s" firstAttribute="leading" secondItem="bg7-5m-bzh" secondAttribute="leading" constant="16" id="XJF-QI-vRA"/>
-                            <constraint firstItem="MqM-jK-YIG" firstAttribute="centerX" secondItem="JQS-8A-npm" secondAttribute="centerX" id="YBL-a0-3T5"/>
-                            <constraint firstItem="MqM-jK-YIG" firstAttribute="centerY" secondItem="JQS-8A-npm" secondAttribute="centerY" id="vT0-y9-E8f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PWC-Zp-a8u"/>
+                    <navigationItem key="navigationItem" title="Edit flashcard" id="rLH-6z-CJo">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mnc-Ot-3Mj">
+                            <connections>
+                                <action selector="saveButtonPressed" destination="52q-0k-CFC" id="fpj-Ca-0vc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="englishWordTF" destination="mjJ-jw-Rnr" id="4S8-tC-pHa"/>
                         <outlet property="isLearnedSegmentController" destination="zBf-OC-lYb" id="8fr-FD-3rm"/>
@@ -213,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0o-AW-fsc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="316"/>
+            <point key="canvasLocation" x="2573.913043478261" y="315.48913043478262"/>
         </scene>
         <!--Flashcards-->
         <scene sceneID="QKh-3e-QK9">
@@ -269,9 +265,27 @@
             </objects>
             <point key="canvasLocation" x="-261" y="678"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iBY-75-0Kx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Pvv-EG-IQn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Ynm-a8-TR2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="52q-0k-CFC" kind="relationship" relationship="rootViewController" id="b79-Og-Jhc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIB-57-4ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666.6666666666667" y="315.48913043478262"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bTD-ja-9CG"/>
+        <segue reference="UeT-rQ-fi6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.richtext" catalog="system" width="115" height="128"/>
