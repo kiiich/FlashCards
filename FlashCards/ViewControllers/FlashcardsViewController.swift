@@ -24,15 +24,17 @@ class FlashcardsViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
-        
-        flashcards = flashcards
-            .filter{ !$0.isLearned }
-            .shuffled()
-        
+                
+        prepareForFlashcards()
         setupButtonsStyle()
         updateUIElements(currentFlashcard())
         adaptUIForPhoneModels()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        prepareForFlashcards()
+        updateUIElements(currentFlashcard())
     }
     
     override func viewWillLayoutSubviews() {
@@ -83,6 +85,16 @@ class FlashcardsViewController: UIViewController {
         editFlashcardVC.delegate = self
     }
         
+    private func prepareForFlashcards() {
+        
+        currentIndex = 0
+        
+        flashcards = flashcards
+            .filter{ !$0.isLearned }
+            .shuffled()
+        
+    }
+    
     private func updateUIElements(_ currentFlashcard: Flashcard) {
         
         wordLabel.text = currentFlashcard.enWord
