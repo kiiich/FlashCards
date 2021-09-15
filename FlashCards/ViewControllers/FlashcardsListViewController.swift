@@ -10,11 +10,6 @@ import UIKit
 class FlashcardsListViewController: UITableViewController {
 
     var flashcards: [Flashcard]!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         flashcards.count
@@ -30,8 +25,6 @@ class FlashcardsListViewController: UITableViewController {
         
         content.text = card.enWord
         content.secondaryText = card.ruTranslation
-        content.image = UIImage(named: card.imageName)
-        content.imageProperties.cornerRadius = tableView.rowHeight / 2
         
         if card.isLearned {
             content.imageProperties.tintColor = .orange
@@ -45,32 +38,4 @@ class FlashcardsListViewController: UITableViewController {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let editFlashcardVC = segue.destination as? EditingFlashcardViewController else { return }
-        
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        
-        editFlashcardVC.flashcard = flashcards[indexPath.row]
-        editFlashcardVC.delegate = self
-        
-    }
-    
-    private func setupUI() {
-        tableView.rowHeight = 70
-        setTitle()
-    }
-    
-    private func setTitle() {
-        let countLearned = flashcards.filter({ $0.isLearned }).count
-        title = "Studied: \(countLearned) of \(flashcards.count)"
-    }
-    
-}
-
-extension FlashcardsListViewController: FlashcardsUpdateDelegate {
-    func updateFlashcards() {
-        tableView.reloadData()
-        setTitle()
-    }
 }
