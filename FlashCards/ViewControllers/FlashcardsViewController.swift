@@ -34,7 +34,6 @@ class FlashcardsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        prepareForFlashcards()
         
         if filteredFlashcards.count == 0 {
             hideNavigationElements()
