@@ -11,8 +11,38 @@ class FlashcardsListViewController: UITableViewController {
 
     var flashcards: [Flashcard]!
 
+    private let titleSortByAbc = "Sort by abc"
+    private let titleSortByState = "Sort by state"
+    
+    @IBAction func changeSortType(_ sender: UIBarButtonItem) {
+
+        if sender.title == titleSortByAbc {
+            
+            flashcards.sort()
+            
+            sender.title = titleSortByState
+            
+        } else if sender.title == titleSortByState {
+            
+            flashcards.sort {
+                if $0.isLearned && $1.isLearned {
+                    return $0 > $1
+                } else if !$0.isLearned && $1.isLearned {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            
+            sender.title = titleSortByAbc
+        }
+    
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        flashcards.sort()
         setupUI()
     }
     
