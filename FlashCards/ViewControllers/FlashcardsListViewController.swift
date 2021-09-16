@@ -62,7 +62,7 @@ class FlashcardsListViewController: UITableViewController {
     }
     
     private func setupUI() {
-        tableView.rowHeight = 70
+        tableView.rowHeight = 80
         setTitle()
     }
     
