@@ -34,7 +34,13 @@
                             <outlet property="delegate" destination="gub-8E-5Li" id="cNL-7M-YBY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Flashcards" id="Ixe-vI-exO"/>
+                    <navigationItem key="navigationItem" title="Flashcards" id="Ixe-vI-exO">
+                        <barButtonItem key="leftBarButtonItem" title="Sort by state" id="OjS-C8-iBb">
+                            <connections>
+                                <action selector="changeSortType:" destination="gub-8E-5Li" id="4Aj-4P-ijj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYx-z1-aHd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,7 +306,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bTD-ja-9CG"/>
+        <segue reference="UeT-rQ-fi6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.richtext" catalog="system" width="115" height="128"/>
