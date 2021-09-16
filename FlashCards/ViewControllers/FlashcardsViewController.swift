@@ -20,19 +20,29 @@ class FlashcardsViewController: UIViewController {
     
     var flashcards: [Flashcard]!
     private var currentIndex = 0
+    private var filteredFlashcards: [Flashcard] = []
     
     override func viewDidLoad() {
        
         super.viewDidLoad()
-        
-        flashcards = flashcards
-            .filter{ !$0.isLearned }
-            .shuffled()
-        
+                
+        prepareForFlashcards()
         setupButtonsStyle()
         updateUIElements(currentFlashcard())
         adaptUIForPhoneModels()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        prepareForFlashcards()
+        
+        if filteredFlashcards.count == 0 {
+            hideNavigationElements()
+            allStudiedLabel.isHidden = false
+            return
+        }
+        
+        updateUIElements(currentFlashcard())
     }
     
     override func viewWillLayoutSubviews() {
@@ -41,19 +51,21 @@ class FlashcardsViewController: UIViewController {
 
     @IBAction func knowButtonPressed() {
     
-        if flashcards.count == 1 {
+        if filteredFlashcards.count == 1 {
             hideNavigationElements()
             allStudiedLabel.isHidden = false
+            filteredFlashcards[0].isLearned = true
+            filteredFlashcards.remove(at: 0)
             return
         }
         
-        if currentIndex == flashcards.count - 1 {
+        if currentIndex == filteredFlashcards.count - 1 {
             currentIndex = 0
         }
         
-        flashcards[currentIndex].isLearned = true
+        filteredFlashcards[currentIndex].isLearned = true
         
-        flashcards.remove(at: currentIndex)
+        filteredFlashcards.remove(at: currentIndex)
         
         updateUIElements(currentFlashcard())
         
@@ -61,7 +73,7 @@ class FlashcardsViewController: UIViewController {
     
     @IBAction func dontKnowButtonPressed() {
         
-        if currentIndex == flashcards.count - 1 {
+        if currentIndex == filteredFlashcards.count - 1 {
             currentIndex = 0
         } else {
             currentIndex += 1
@@ -76,18 +88,29 @@ class FlashcardsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let editFlashcardVC = segue.destination as? EditingFlashcardViewController else { return }
-        
-        editFlashcardVC.flashcard = currentFlashcard()
-        editFlashcardVC.delegate = self
+        if let navigationVC = segue.destination as? UINavigationController {
+            guard let editFlashcardVC = navigationVC.topViewController as? EditingFlashcardViewController else { return }
+            
+            editFlashcardVC.flashcard = currentFlashcard()
+            editFlashcardVC.delegate = self
+        }
     }
         
+    private func prepareForFlashcards() {
+        
+        currentIndex = 0
+        
+        filteredFlashcards = flashcards
+            .filter{ !$0.isLearned }
+            .shuffled()
+        
+    }
+    
     private func updateUIElements(_ currentFlashcard: Flashcard) {
         
         wordLabel.text = currentFlashcard.enWord
         imageFlashcardView.image = UIImage(named: currentFlashcard.imageName)
-        countLabel.text = "\(currentIndex + 1) / \(flashcards.count)"
+        countLabel.text = "\(currentIndex + 1) / \(filteredFlashcards.count)"
         showAnswerButton.setTitle("Show answer", for: .normal)
         
     }
@@ -100,7 +123,7 @@ class FlashcardsViewController: UIViewController {
     }
     
     private func currentFlashcard() -> Flashcard {
-        flashcards[currentIndex]
+        filteredFlashcards[currentIndex]
     }
     
     private func hideNavigationElements() {
