@@ -62,7 +62,13 @@ class FlashcardsListViewController: UITableViewController {
     }
     
     private func setupUI() {
-        tableView.rowHeight = 80
+        
+        if UIDevice().name == "iPhone SE (1st generation)" {
+            tableView.rowHeight = 70
+        } else {
+            tableView.rowHeight = 80
+        }
+        
         setTitle()
     }
     
