@@ -1,3 +1,5 @@
 # FlashCards
 
-App for learning english words by flashcatds
+Приложение для изучение англиских слов по карточкам.
+
+
