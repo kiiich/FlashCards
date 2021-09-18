@@ -26,6 +26,8 @@ class FlashcardsViewController: UIViewController {
        
         super.viewDidLoad()
                 
+        currentIndex = 0
+        
         prepareForFlashcards()
         setupButtonsStyle()
         updateUIElements(currentFlashcard())
@@ -35,10 +37,19 @@ class FlashcardsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if filteredFlashcards.count == 0 {
-            hideNavigationElements()
-            allStudiedLabel.isHidden = false
+        filteredFlashcards = flashcards
+            .filter{ !$0.isLearned }
+        
+        let wordsIsStudied = filteredFlashcards.count == 0
+        
+        setupNavigationElements(allWordsIsStudied: wordsIsStudied)
+        
+        if wordsIsStudied {
             return
+        }
+        
+        if currentIndex > filteredFlashcards.count - 1 {
+            currentIndex = 0
         }
         
         updateUIElements(currentFlashcard())
@@ -51,8 +62,7 @@ class FlashcardsViewController: UIViewController {
     @IBAction func knowButtonPressed() {
     
         if filteredFlashcards.count == 1 {
-            hideNavigationElements()
-            allStudiedLabel.isHidden = false
+            setupNavigationElements(allWordsIsStudied: true)
             filteredFlashcards[0].isLearned = true
             filteredFlashcards.remove(at: 0)
             return
@@ -97,8 +107,6 @@ class FlashcardsViewController: UIViewController {
         
     private func prepareForFlashcards() {
         
-        currentIndex = 0
-        
         filteredFlashcards = flashcards
             .filter{ !$0.isLearned }
             .shuffled()
@@ -122,16 +130,23 @@ class FlashcardsViewController: UIViewController {
     }
     
     private func currentFlashcard() -> Flashcard {
-        filteredFlashcards[currentIndex]
+        
+        if currentIndex > filteredFlashcards.count - 1 {
+            currentIndex = 0
+        }
+        
+        return filteredFlashcards[currentIndex]
     }
     
-    private func hideNavigationElements() {
+    private func setupNavigationElements(allWordsIsStudied: Bool) {
         
-        imageFlashcardView.isHidden = true
-        wordLabel.isHidden = true
-        countLabel.isHidden = true
-        showAnswerButton.isHidden = true
-        buttonsStack.isHidden = true
+        imageFlashcardView.isHidden = allWordsIsStudied
+        wordLabel.isHidden = allWordsIsStudied
+        countLabel.isHidden = allWordsIsStudied
+        showAnswerButton.isHidden = allWordsIsStudied
+        buttonsStack.isHidden = allWordsIsStudied
+        
+        allStudiedLabel.isHidden = !allWordsIsStudied
         
     }
     
