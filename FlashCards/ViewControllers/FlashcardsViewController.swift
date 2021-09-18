@@ -25,9 +25,7 @@ class FlashcardsViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
-                
-        currentIndex = 0
-        
+
         prepareForFlashcards()
         setupButtonsStyle()
         updateUIElements(currentFlashcard())
