@@ -145,7 +145,7 @@ class FlashcardsViewController: UIViewController {
         buttonsStack.isHidden = allWordsIsStudied
         
         allStudiedLabel.isHidden = !allWordsIsStudied
-        
+        navigationItem.rightBarButtonItem?.isEnabled = !allWordsIsStudied
     }
     
     private func adaptUIForPhoneModels() {

@@ -11,7 +11,7 @@ class DataManager {
     static let shared = DataManager()
     
     let words = [
-        ("antiseptic", "антисептик", true, "antiseptic.jpg"),
+        ("antiseptic", "антисептик", false, "antiseptic.jpg"),
         ("amber", "янтарь", true, "amber.jpg"),
         ("parliament", "парламент", false, "parliament.jpg"),
         ("surgeon", "хирург", false, "surgeron.jpg"),
@@ -22,7 +22,7 @@ class DataManager {
         ("sophisticated", "утонченный", false, "sophisticated.jpg"),
         ("weekend", "выходные", false, "weekend.jpg"),
         ("carry", "нести", false, "carry.jpg"),
-        ("else", "ещё", false, "else.jpg"),
+        ("else", "ещё", true, "else.jpg"),
         ("danger", "опасность", false, "danger.jpg"),
         ("number", "число", false, "number.jpg"),
         ("ratio", "соотношение", false, "ratio.jpg"),
